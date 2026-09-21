@@ -1,0 +1,7 @@
+frame.number|frame.time_relative|ip.src|ip.dst|dns.id|dns.flags.response|dns.qry.name|dns.qry.type|dns.flags.rcode|dns.count.answers|dns.count.auth_rr|dns.count.add_rr
+1|0.000000000|192.168.232.128|8.8.8.8|0x253e|False|example.com|1||0|0|1
+2|0.145376540|8.8.8.8|192.168.232.128|0x253e|True|example.com|1|0|2|0|1
+3|0.206090732|192.168.232.128|8.8.8.8|0x32af|False|example.com|28||0|0|1
+4|0.297152419|8.8.8.8|192.168.232.128|0x32af|True|example.com|28|0|2|0|1
+5|0.359726924|192.168.232.128|8.8.8.8|0x5ea3|False|example.com|15||0|0|1
+6|0.451421448|8.8.8.8|192.168.232.128|0x5ea3|True|example.com|15|0|1|0|1

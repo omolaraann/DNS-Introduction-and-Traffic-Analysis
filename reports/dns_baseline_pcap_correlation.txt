@@ -1,0 +1,18 @@
+=== DNS BASELINE VS PCAP CORRELATION ===
+
+--- Baseline A ---
+example.com.		300	IN	A	104.20.23.154
+example.com.		300	IN	A	172.66.147.243
+
+--- Baseline AAAA ---
+example.com.		300	IN	AAAA	2606:4700:10::ac42:93f3
+example.com.		300	IN	AAAA	2606:4700:10::6814:179a
+
+--- Baseline MX ---
+example.com.		28	IN	MX	0 .
+
+--- PCAP DNS Answers ---
+frame.number|dns.id|dns.qry.name|dns.qry.type|dns.resp.ttl|dns.a|dns.aaaa
+2|0x253e|example.com|1|300,300|104.20.23.154,172.66.147.243|
+4|0x32af|example.com|28|300,300||2606:4700:10::ac42:93f3,2606:4700:10::6814:179a
+6|0x5ea3|example.com|15|300||

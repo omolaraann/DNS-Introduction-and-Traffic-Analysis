@@ -1,0 +1,22 @@
+=== DNS FORENSIC INDICATOR CHECK ===
+
+--- DNS Response Codes ---
+frame.number|dns.id|dns.qry.name|dns.qry.type|dns.flags.rcode|dns.flags.recavail
+2|0x253e|example.com|1|0|True
+4|0x32af|example.com|28|0|True
+6|0x5ea3|example.com|15|0|True
+
+--- Unique DNS Query Names ---
+example.com
+
+--- DNS Conversations ---
+192.168.232.128|8.8.8.8|34860|53|False
+192.168.232.128|8.8.8.8|40274|53|False
+192.168.232.128|8.8.8.8|42371|53|False
+8.8.8.8|192.168.232.128|53|34860|True
+8.8.8.8|192.168.232.128|53|40274|True
+8.8.8.8|192.168.232.128|53|42371|True
+ip.src|ip.dst|udp.srcport|udp.dstport|dns.flags.response
+
+--- DNS Packet Count ---
+6

@@ -1,0 +1,25 @@
+=== FINAL DNS FORENSIC SUMMARY ===
+
+Evidence File: evidence/fresh_dig_dns.pcapng
+SHA256: a7551c00dea38d2332391df578f6ebfa2ec4164f7475778e78dedc1d4ee28904
+
+--- Capture ---
+Number of packets:   6
+File size:           1,140 bytes
+Capture duration:    0.451421448 seconds
+                     Number of packets = 6
+
+--- DNS Transactions ---
+1|192.168.232.128|8.8.8.8|0x253e|False|example.com|1|
+2|8.8.8.8|192.168.232.128|0x253e|True|example.com|1|0
+3|192.168.232.128|8.8.8.8|0x32af|False|example.com|28|
+4|8.8.8.8|192.168.232.128|0x32af|True|example.com|28|0
+5|192.168.232.128|8.8.8.8|0x5ea3|False|example.com|15|
+6|8.8.8.8|192.168.232.128|0x5ea3|True|example.com|15|0
+
+--- DNS Resolvers ---
+192.168.232.128
+8.8.8.8
+
+--- Query Names ---
+example.com

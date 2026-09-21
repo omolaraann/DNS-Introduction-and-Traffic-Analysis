@@ -1,0 +1,4 @@
+frame.number|frame.time_relative|frame.time|dns.id|dns.qry.name|dns.qry.type|dns.count.queries|dns.count.answers
+1|0.000000000|2026-09-21T15:34:04.993284628-0400|0x253e|example.com|1|1|0
+3|0.206090732|2026-09-21T15:34:05.199375360-0400|0x32af|example.com|28|1|0
+5|0.359726924|2026-09-21T15:34:05.353011552-0400|0x5ea3|example.com|15|1|0
