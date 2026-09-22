@@ -14,9 +14,9 @@ DNS is a fundamental component of network communication. Before a system can com
 
 This lab investigates DNS traffic generated while querying:
 
-* **A records** — IPv4 addresses
-* **AAAA records** — IPv6 addresses
-* **MX records** — mail-exchange information
+* **A records** - IPv4 addresses
+* **AAAA records** - IPv6 addresses
+* **MX records** - mail-exchange information
 
 The traffic was captured and subsequently analysed at packet level to identify:
 
@@ -90,13 +90,61 @@ The analysis was performed in a Kali Linux environment.
 
 ---
 
-## 🗂️ Repository Structure
+## 📁 Repository Structure
 
 ```text
 DNS-Introduction-and-Traffic-Analysis/
 │
 ├── 📄 README.md
 ├── 📄 .gitignore
+│
+├── 📁 Screenshots/
+│   ├── 🖼️ A Record Baseline and DNS Query.png
+│   ├── 🖼️ AAAA Record Baseline and DNS Query.png
+│   ├── 🖼️ Consolidated DNS Transaction Table.png
+│   ├── 🖼️ DNS Baseline_to_PCAP Correlation Findings.png
+│   ├── 🖼️ DNS Communication and Infrastructure Analysis.png
+│   ├── 🖼️ DNS Flags and Recursion Analysis.png
+│   ├── 🖼️ DNS Packet Capture and PCAP Acquisition.png
+│   ├── 🖼️ DNS Packet Level.png
+│   ├── 🖼️ DNS Query Behavior Analysis.png
+│   ├── 🖼️ DNS Resolver Configuration.png
+│   ├── 🖼️ DNS Response Status and Answer Counts.png
+│   ├── 🖼️ DNS packet field extraction.png
+│   ├── 🖼️ Detailed AAAA DNS Query and EDNS OPT Analysis Packet3.png
+│   ├── 🖼️ Detailed AAAA DNS Query and EDNS OPT AnalysisPacket3b.png
+│   ├── 🖼️ Detailed AAAA DNS Response and EDNS OPT AnalysisPacket4.png
+│   ├── 🖼️ Detailed AAAA DNS Response and EDNS OPT AnalysisPacket4c.png
+│   ├── 🖼️ Detailed DNS Query and EDNS OPT Analysis Frame 2.png
+│   ├── 🖼️ Detailed DNS Query and EDNS OPT Analysis Frame1.png
+│   ├── 🖼️ Detailed DNS Query and EDNS OPT Analysis Frame2b.png
+│   ├── 🖼️ Detailed DNS Query and EDNS OPT Analysis Frame2c.png
+│   ├── 🖼️ Detailed DNS Query and EDNS OPT Analysis.png
+│   ├── 🖼️ Detailed DNS Query and EDNS OPT Analysis1.png
+│   ├── 🖼️ Detailed MX DNS Query and EDNS OPT AnalysisPacket5.png
+│   ├── 🖼️ Detailed MX DNS Query and EDNS OPT AnalysisPacket5b.png
+│   ├── 🖼️ Detailed MX DNS Response and EDNS OPT AnalysisPacket6.png
+│   ├── 🖼️ Detailed MX DNS Response and EDNS OPT AnalysisPacket6b.png
+│   ├── 🖼️ Detailed MX DNS Response and EDNS OPT AnalysisPacket6c.png
+│   ├── 🖼️ EDNS Field Extraction Validation.png
+│   ├── 🖼️ EDNS and DNSSEC Field Analysis.png
+│   ├── 🖼️ Lab Workspace Preparation.png
+│   ├── 🖼️ Live A Record Query.png
+│   ├── 🖼️ Live AAAA Record Query.png
+│   ├── 🖼️ Live DNS Capture Evidence Preservation.png
+│   ├── 🖼️ Live DNS Capture.png
+│   ├── 🖼️ Live DNS Traffic Capture Validation.png
+│   ├── 🖼️ Live MX Record Query.png
+│   ├── 🖼️ Live NS Record Query.png
+│   ├── 🖼️ MX Record Baseline and DNS Query.png
+│   ├── 🖼️ NS Record Baseline and DNS Query.png
+│   ├── 🖼️ Network Capture Interface Verification.png
+│   ├── 🖼️ SHA-256 DNS Capture Integrity Verification.png
+│   ├── 🖼️ Tool and Version Verification.png
+│   ├── 🖼️ Tool and Version Verification2.png
+│   ├── 🖼️ Upstream DNS and Network Interface Verification.png
+│   ├── 🖼️ Working Copy Creation.png
+│   └── 📄 .gitkeep
 │
 ├── 📁 evidence/
 │   ├── 📦 dig_dns.pcap
@@ -124,6 +172,17 @@ DNS-Introduction-and-Traffic-Analysis/
 └── 📁 working/
     └── 📦 dig_dns_working.pcap
 ```
+
+### 🗂️ Directory Overview
+
+| 📁 Directory / File | 🔍 Description                                                                                                                                                                                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 📄 `README.md`      | Main project documentation containing the assignment overview, methodology, tools, investigation process, findings, evidence summary, and conclusion.                                                                                                               |
+| 📁 `Screenshots/`   | Contains the supporting screenshots captured throughout the investigation, including workspace preparation, DNS configuration, baseline queries, packet capture, packet-level analysis, EDNS analysis, evidence preservation, correlation, and forensic assessment. |
+| 📁 `evidence/`      | Contains the preserved DNS packet-capture evidence used during the investigation.                                                                                                                                                                                   |
+| 📁 `reports/`       | Contains extracted DNS results, packet-analysis outputs, communication analysis, baseline correlation, integrity records, forensic indicator checks, and the final DNS forensic summary.                                                                            |
+| 📁 `working/`       | Contains the working copy of the supplied DNS packet capture used during analysis.                                                                                                                                                                                  |
+| 📄 `.gitignore`     | Defines temporary, working, system, and other files that should not be added to version control.                                                                                                                                                                    |
 
 ---
 
@@ -800,36 +859,6 @@ Controlled DNS queries were generated, network traffic was captured, DNS transac
 The analysis showed a small set of successful DNS transactions involving A, AAAA, and MX records for `example.com`, with all observed responses returning successfully.
 
 The resulting packet captures, command outputs, analytical evidence, configuration information, and integrity records have been retained in this repository to provide a reproducible record of the investigation.
-
----
-
-## 📌 Repository Contents at a Glance
-
-```text
-🌐 DNS Introduction and Traffic Analysis
-│
-├── 🧾 Documentation
-│   └── README.md
-│
-├── 📦 Evidence
-│   ├── dig_dns.pcap
-│   └── fresh_dig_dns.pcapng
-│
-├── 📊 Reports
-│   ├── DNS query outputs
-│   ├── DNS answer extraction
-│   ├── Transaction analysis
-│   ├── Communication analysis
-│   ├── Query behaviour
-│   ├── Forensic indicator checks
-│   ├── Baseline correlation
-│   ├── Evidence hashes
-│   ├── Resolver configuration
-│   └── Final forensic summary
-│
-└── 🛠️ Working Evidence
-    └── dig_dns_working.pcap
-```
 
 ---
 
